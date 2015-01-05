@@ -125,7 +125,6 @@ nav {
     max-width: 62rem;
     margin: 0 auto;
     padding: 2rem 2rem 0 2rem;
-    border-bottom: 1px solid black;
 }
 
 nav li{
@@ -213,7 +212,7 @@ nav div {
     cursor: pointer;
 }
 
-::-webkit-scrollbar {
+/*::-webkit-scrollbar {
     width: 12px;
 }
  
@@ -225,7 +224,7 @@ nav div {
 ::-webkit-scrollbar-thumb {
     border-radius: 0px;
     background-color: #fff;
-}
+}*/
 
 ::selection {
     background: #E6C2B3;
