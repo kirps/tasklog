@@ -4,36 +4,42 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Tasklog</title>
 
-    <!-- Bootstrap -->
-    <!-- link href="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js" rel="stylesheet" -->
+    <!-- <link href="http://fonts.googleapis.com/css?family=Josefin+Sans:700|Amatic+SC:700" rel="stylesheet" type="text/css" /> -->
+    <link href="http://fonts.googleapis.com/css?family=Fjalla+One|Cantarell:400,400italic,700italic,700" rel="stylesheet" type="text/css" />
+    <link href="/css/tasklog.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) and other shiz -->
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/scripts/tasklog.js"></script>
   </head>
   <body>
-    <div class="container" id="main">
-        <h1>Tasklog</h1>
-        <div id='theList'>
-           
+    <header class="color-primary-0 bg-color-primary-1">
+            <nav>
+                <ul>
+                    <li><div class="header-font">Tasklog</div></li>
+                    <li><a class="body-font" href="#">History</a></li>
+                    <li><a class="body-font" href="#">Active</a></li>
+                    <li><a class="body-font" href="#">Backlog</a></li>                        
+                </ul>
+            </nav>
+
+    </header>
+    <div class="container bg-color-primary-0" id="main">
+        
+       
+        <div class="inner">
+
+            <div class="list body-font" id='theList'>
+               
+            </div>
         </div>
     </div>
 
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-    <footer>
+    <footer class="bg-color-primary-1">
         <p>Heavily inspired by</p>
-        <p><a href="">Jot</a> and <a href="">Dayboard</a></p>
+        <p><a href="https://github.com/mattohagan/jot">Jot</a> and <a href="https://dayboard.co/">Dayboard</a></p>
     </footer>
   </body>
 </html>

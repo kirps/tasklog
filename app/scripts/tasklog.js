@@ -1,34 +1,5 @@
 'use strict';
 
-// var $ = $ || window.$;
-
-// $(document).ready(function(){
-
-//     var theList = document.getElementById('theList');
-
-//     function loadTodo(){
-//         if(localStorage.getItem('todoList')){
-//             theList.innerHTML = localStorage.getItem('todoList');
-//         }
-//     }
-
-
-//     $('#saveAll').click(function(e){
-//         e.preventDefault();
-//         localStorage.setItem('todoList', theList.innerHTML);
-//     });
-
-//     $('#clearAll').click(function(e){
-//         e.preventDefault();
-//         localStorage.clear();
-//         location.reload();
-//     });
-
-//     loadTodo();
-
-// });
-
-
 window.onload = function(){
     var storage = {};
     var stor = true;
@@ -39,15 +10,15 @@ window.onload = function(){
     //var clearBtn = document.getElementById('clear');
     //var jotBtn = document.getElementById('jBtn');
     
-    var appBtn = document.getElementById('appBtn');
+    //var appBtn = document.getElementById('appBtn');
 
     //used for testing 
-    /* storage = {
-        '0': 'youtu.be/link',
-        '1': '#hexcode'
-    } 
-    localStorage.setItem('list', JSON.stringify(storage));
-    */
+    // storage = {
+    //     '0': 'youtu.be/link',
+    //     '1': '#hexcode'
+    // };
+    // localStorage.setItem('list', JSON.stringify(storage));
+    
     
 
     // find storage or set to nothing in order to render
@@ -57,7 +28,7 @@ window.onload = function(){
     else {
         storage = {
             '0': ''
-        }
+        };
         stor = false;
     }
 
@@ -65,8 +36,32 @@ window.onload = function(){
     // var arr = theList.getElementsByTagName('div');
     // arr[0].parentNode.removeChild(arr[0]);
 
+
+    // helper that returns a left button element
+    function createBtn() {
+        var btn = document.createElement('i');
+        btn.setAttribute('id', 'left');
+        btn.setAttribute('class', 'left icon-right-open-big');
+
+        return btn;
+    }
+
+    // helper that returns a editable text element
+    function createTxt(line) {
+        var txt = document.createElement('div');
+        txt.setAttribute('id', line);
+        txt.setAttribute('contentEditable', true);
+        txt.setAttribute('class', 'txt');
+
+        return txt;
+    }
+
+
     // loop through storage and render each line approriately
-    var length = Object.keys(storage).length; 
+    var length = Object.keys(storage).length;
+
+    console.info('storage length: '+length);
+
     for(var i=0; i <= length; i++) {
         var div = document.createElement('div');
         div.setAttribute('id', lineNum);
@@ -74,15 +69,17 @@ window.onload = function(){
         var txt = createTxt(lineNum);
 
         // create last line
-        if (i == length) {
+        if (i === length) {
             if(stor) {
                 div.setAttribute('class', 'last');
                 div.addEventListener('click', function(){
                     div.setAttribute('class', '');
+                    console.info('this is the function within the loop');
                 });
                 txt.appendChild(document.createTextNode(''));
-            } else 
+            } else {
                 break;
+            }
         } else {
             txt.appendChild(document.createTextNode(storage[i]));
         }
@@ -95,24 +92,7 @@ window.onload = function(){
 
 
 
-    // returns a left button element
-    function createBtn() {
-        var btn = document.createElement('i');
-        btn.setAttribute('id', 'left');
-        btn.setAttribute('class', 'left icon-right-open-big');
-
-        return btn;
-    }
-
-    // returns a editable text element
-    function createTxt(line) {
-        var txt = document.createElement('div');
-        txt.setAttribute('id', line);
-        txt.setAttribute('contentEditable', true);
-        txt.setAttribute('class', 'txt');
-
-        return txt;
-    }
+   
     
 
     // returns ALL divs in the 'input' div
@@ -121,8 +101,9 @@ window.onload = function(){
     // creates new array without btns and txt to loop through
     var containerArray = [];
     var len = divArray.length / 2;
-    for(var i = 0; i < len; i++)
-        containerArray[i] = divArray[i * 2];
+    for(var j = 0; j < len; j++) {
+        containerArray[j] = divArray[j * 2];
+    }
 
     // functions for button and text box features
     function addBtnListener(btn, txt) {
@@ -149,8 +130,8 @@ window.onload = function(){
         el.addEventListener('keypress', function(e){
             var key = e.which || e.keyCode;
             // <enter> key code
-            if (key == 13) {
-                if (el.innerText != '') {
+            if (key === 13) {
+                if (el.innerText !== '') {
                     var div = document.createElement('div');
                     div.setAttribute('id', lineNum);
                     var btn = createBtn();
@@ -166,11 +147,11 @@ window.onload = function(){
 
                     newTxt.focus();
                     e.preventDefault();
-                    lineNum++
+                    lineNum++;
                 } else {
                     e.preventDefault();
                 }
-            } 
+            }
 
         });
 
@@ -178,15 +159,15 @@ window.onload = function(){
         el.addEventListener('keydown', function(e){
             var key = e.which || e.keyCode;
             // <backspace> key code
-            if (key == 8) {
+            if (key === 8) {
                 var div = el.parentNode;
                 var txt = div.getElementsByClassName('txt')[0];
-                var btn = div.getElementsByClassName('left icon-right-open-big')[0];
+                // var btn = div.getElementsByClassName('left icon-right-open-big')[0];
                 var text = txt.innerText;
 
                 // if the current line is blank, delete it and put focus on 
                 // previous element
-                if(text == '' || text == null){
+                if(text === '' || text === null){
                     e.preventDefault();
                     var arr = div.parentNode.getElementsByTagName('div');
                     
@@ -195,7 +176,7 @@ window.onload = function(){
                     var txtArr = [];
                     var j = 0;
                     for(var i = 0; i <= arr.length - 1; i++) {
-                        if (arr[i].className == 'txt') {
+                        if (arr[i].className === 'txt') {
                             txtArr[j] = arr[i];
                             j++;
                         }
@@ -203,7 +184,7 @@ window.onload = function(){
 
                     // find current row and focus on previous one
                     var lcv = 0;
-                    while (txtArr[lcv].innerText != text) {
+                    while (txtArr[lcv].innerText !== text) {
                         lcv++;
                     }
                     
@@ -220,14 +201,14 @@ window.onload = function(){
 
     // the following few functions are to set listeners for 
     // elements already in storage
-    function setBtnListener (element, index, array) {
+    function setBtnListener (element) {
         var curr = element.getElementsByClassName('left icon-right-open-big')[0];
         var txt = element.getElementsByClassName('txt')[0];
 
         addBtnListener(curr, txt);
     }
 
-    function setTxtListener (element, index, array) {
+    function setTxtListener (element) {
         var txt = element.getElementsByClassName('txt')[0];
         addTxtListener(txt);
     }
@@ -239,7 +220,7 @@ window.onload = function(){
     // timer used so that storage isnt reset on every keystroke
     theList.addEventListener('keyup', function(){
         resetTimer();
-    }); 
+    });
 
     // clear & reset storage set timer
     function resetTimer(){
@@ -254,16 +235,18 @@ window.onload = function(){
 
         // get an array of just the txt elements
         var array = theList.getElementsByTagName('div');
-        for(var i = 0; i < array.length; i+=2)
+        for(var i = 0; i < array.length; i+=2) {
             newArray[j++] = array[i + 1];
+        }
 
         // reset and refill storage
+        console.log('storage is happening, new array length: '+newArray.length);
         storage = {};
-        for(var i=0, j=0; i < newArray.length; i++) {
-            var text = newArray[i].innerText;
-            if (text != '\n' && text != '' && text != ' '){
-                storage[j] = text;
-                j++;
+        for(var x=0, y=0; x < newArray.length; x++) {
+            var text = newArray[x].innerText;
+            if (text !== '\n' && text !== '' && text !== ' '){
+                storage[y] = text;
+                y++;
             }
         }
         
@@ -290,7 +273,7 @@ window.onload = function(){
             range.moveToElementText(el);
             range.select();
         } else if (window.getSelection) {
-            selection = window.getSelection();        
+            selection = window.getSelection();
             range = document.createRange();
             range.selectNodeContents(el);
             selection.removeAllRanges();
@@ -299,14 +282,14 @@ window.onload = function(){
     }
 
     // set background
-    var n = Math.floor((Math.random() * 45) + 1);
-    document.body.style.backgroundImage = 'url('bg/'+n+'.jpg')';
+    // var n = Math.floor((Math.random() * 45) + 1);
+    // document.body.style.backgroundImage = 'url('bg/'+n+'.jpg')';
 
-    appBtn.addEventListener('click', function(){
-        chrome.tabs.update({
-            url:'chrome://apps'
-        });
-    });
+    // appBtn.addEventListener('click', function(){
+    //     chrome.tabs.update({
+    //         url:'chrome://apps'
+    //     });
+    // });
 
     
-}
+};

@@ -1,0 +1,235 @@
+/*
+@font-face {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  src: url('../font/lato/Lato-Hairline.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  src: url('../font/lato/Lato-Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}*/
+
+html { 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+body {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    /*border: 12px solid #fff;*/
+
+}
+
+.fontello {
+    font-family: fontello;
+}
+
+.apps {
+    font-size: 1rem; 
+    font-weight: 900; 
+    color: #fff; 
+    position: absolute; 
+    top: 40px;
+    left: 40px;
+    max-width: 150px;
+    padding-left: 5px;
+    opacity: 0.6;
+}
+
+.apps:hover {
+    color: #E6C2B3;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+
+/*.header { 
+    font-size: 5rem; 
+    font-weight: 900; 
+    color: #fff; 
+    position: relative; 
+    max-width: 150px;
+    padding-left: 5px;
+}
+
+.header i {
+    font-size: 4rem;
+}
+
+.header:hover {
+    color: #E6C2B3;
+    cursor: pointer;
+}*/
+
+
+/* CSS - Cascading Style Sheet */
+/* Palette color codes */
+/* Palette URL: http://paletton.com/#uid=12+0u0k18O1pOqfgFA-dOPU4nph */
+
+/* Feel free to copy&paste color codes to your application */
+
+
+/* As hex codes */
+
+.color-primary-0 { color: #D9E1DC } /* Main Primary color */
+.color-primary-1 { color: #1D9454 }
+.color-primary-2 { color: #5DC18B }
+.color-primary-3 { color: #82E5B0 }
+.color-primary-4 { color: #7B8E84 }
+
+.bg-color-primary-0 { background-color: #D9E1DC } /* Main Primary color */
+.bg-color-primary-1 { background-color: #1D9454 }
+.bg-color-primary-2 { background-color: #5DC18B }
+.bg-color-primary-3 { background-color: #82E5B0 }
+.bg-color-primary-4 { background-color: #7B8E84 }
+
+.header-font {
+    /*font-family: 'Amatic SC', cursive;*/
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.body-font {
+    /*font-family: 'Josefin Sans', sans-serif;*/
+     font-family: 'Cantarell', sans-serif;
+}
+
+header {
+    /*background-color: green;*/
+    font-size: 3rem;
+    font-weight: 700;
+    display: inline-block;
+    width: 100%
+}
+
+footer {
+    text-align: center;
+}
+
+nav {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 300; 
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 2rem 2rem 0 2rem;
+    border-bottom: 1px solid black;
+}
+
+nav li{
+    display:inline;
+    margin: auto;
+}
+
+nav div {
+    display:inline;
+}
+
+
+.button { 
+    float: right; 
+    position: relative; 
+    background: none;
+    border: 5px solid #fff; 
+    margin-top: 20px;
+    color: #fff;
+    font-size: 3rem; 
+    font-weight: 900; 
+    padding: 4px 10px 0px 10px;
+}
+
+.button:hover {
+    cursor:pointer;
+    color: #E6C2B3;
+    border-color: #E6C2B3;
+}
+
+.list { 
+    font-weight: 300; 
+    outline: none; 
+    color: #fff; 
+    text-shadow: 0px 1px 5px rgba(0,0,0,0.2); 
+    height: 70%; 
+    padding: 0;
+    overflow: auto; 
+    margin: 3.5rem 0 0 0;
+}
+
+.list .left {
+    float: left;
+    cursor: pointer;
+    margin-top: 1.3rem;
+}
+
+.list .left:hover {
+    color: #E6C2B3;
+}
+
+.list .txt {
+    margin-left: 70px;
+    outline: none;
+    spellcheck: false;
+    autocorrect: "off";
+    border-bottom: 1px solid #fff
+}
+
+.list i {
+    text-shadow: none;
+    font-size: 3rem;
+}
+
+
+.inner {
+    font-size: 3rem;
+    line-height: 1.3;
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 2rem 2rem 0 2rem;
+}
+
+.container {
+    width:100%;
+    height:100%;
+    /*background-color:rgba(0,0,0,0.4);*/
+}
+
+.last {
+    opacity: 0;
+}
+.last:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-radius: 0px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: #fff;
+}
+
+::selection {
+    background: #E6C2B3;
+}
+::-moz-selection {
+    background: #E6C2B3;
+}
